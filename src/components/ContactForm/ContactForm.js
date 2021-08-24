@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import styles from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContact } from '../redux/contact/contact-selector';
-import { addContact } from '../redux/contact/contact-action';
+// import { addContact } from '../redux/contact/contact-action';
+import { addContact } from 'components/redux/contact/contact-types';
 
+import styles from './ContactForm.module.css';
 import { Input } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 

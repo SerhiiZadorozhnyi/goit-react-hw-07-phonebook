@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import { changeFilter } from "components/redux/contact/contact-action";
-import styles from './Filter.module.css';
+// import { changeFilter } from "components/redux/contact/contact-action";
 import { getFilter } from "components/redux/contact/contact-selector";
+import actions from "components/redux/contact/contact-action";
+
+import styles from './Filter.module.css';
+// import { getFilter } from "components/redux/contact/contact-selector";
 import { Input } from '@material-ui/core';
 
 
 function Filter() {
   const value = useSelector(getFilter);
   const dispatch = useDispatch();
-
 
   return (
     <label className={styles.itemFilter}>
@@ -17,7 +19,7 @@ function Filter() {
         className={styles.itemElement}
         type="text"
         value={value}
-        onChange={event => dispatch(changeFilter(event.target.value))}
+        onChange={event => dispatch(actions.changeFilter(event.target.value))}
       />
     </label>
   );

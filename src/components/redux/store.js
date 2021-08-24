@@ -5,7 +5,7 @@ import {
     combineReducers, 
 } from '@reduxjs/toolkit';
 import {
-    persistStore,
+    // persistStore,
     persistReducer,
     FLUSH,
     REHYDRATE,
@@ -43,4 +43,4 @@ export const store = configureStore({
     middleware,
 });
 
-export const persistor = persistStore(store);
+// export const persistor = persistStore(store);

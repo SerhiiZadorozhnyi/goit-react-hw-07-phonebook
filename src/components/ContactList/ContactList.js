@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
-import styles from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from '../redux/contact/contact-action';
+
+import { deleteContact, fetchContact } from '../redux/contact/contact-types';
 import { getVisibleContact } from '../redux/contact/contact-selector';
 
+import styles from './ContactList.module.css';
 import { Button } from '@material-ui/core';
+import { useEffect } from 'react';
 
 
 function ContactList () {
@@ -12,6 +14,11 @@ function ContactList () {
   const dispatch = useDispatch();
 
   const onDeleteContact = id => dispatch(deleteContact(id));
+
+  useEffect(() => {
+    dispatch(fetchContact());
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>
