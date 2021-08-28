@@ -1,27 +1,29 @@
-import contactReducer from "./contact/contact-reduce";
-import { 
-    configureStore, 
-    getDefaultMiddleware, 
-    combineReducers, 
-} from '@reduxjs/toolkit';
+import contactReducer from './contact/contact-reducer';
 import {
-    // persistStore,
-    persistReducer,
-    FLUSH,
-    REHYDRATE,
-    PAUSE,
-    PERSIST,
-    PURGE,
-    REGISTER,
+  configureStore,
+  getDefaultMiddleware,
+  combineReducers,
+} from '@reduxjs/toolkit';
+
+import {
+  // persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
 } from 'redux-persist';
 
 import logger from 'redux-logger';
 import storage from 'redux-persist/lib/storage';
 
+
 const middleware = [
     ...getDefaultMiddleware({
         serializableCheck: {
-            ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
     }),
     logger,
@@ -33,8 +35,7 @@ const persistConfig = {
     blacklist: ['filter'],
 };
 
-const rootReducer =  combineReducers({ contacts: contactReducer });
-
+const rootReducer = combineReducers({ contacts: contactReducer });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
@@ -42,5 +43,3 @@ export const store = configureStore({
     devTools: process.env.NODE_ENV === 'development',
     middleware,
 });
-
-// export const persistor = persistStore(store);

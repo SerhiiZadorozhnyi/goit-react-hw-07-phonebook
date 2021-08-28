@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContact } from '../redux/contact/contact-selector';
-// import { addContact } from '../redux/contact/contact-action';
-import { addContact } from 'components/redux/contact/contact-types';
+import { addContact } from '../redux/contact/contact-operations';
 
 import styles from './ContactForm.module.css';
 import { Input } from '@material-ui/core';
@@ -67,7 +66,7 @@ function ContactForm() {
         <label className={styles.label}>
           Номер:
             <Input
-              type="tel"
+              type="text"
               name="number"
               value={number}
               placeholder="111-11-11"

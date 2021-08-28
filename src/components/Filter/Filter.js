@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-// import { changeFilter } from "components/redux/contact/contact-action";
-import { getFilter } from "components/redux/contact/contact-selector";
-import actions from "components/redux/contact/contact-action";
+// import actions from "components/redux/contact/contact-operations";
+import actions from '../redux/contact/contact-action';
+// import { getFilter } from "components/redux/contact/contact-selector";
+import { getFilter } from '../redux/contact/contact-selector';
 
 import styles from './Filter.module.css';
-// import { getFilter } from "components/redux/contact/contact-selector";
 import { Input } from '@material-ui/core';
 
 
@@ -14,7 +14,7 @@ function Filter() {
 
   return (
     <label className={styles.itemFilter}>
-      <p className={styles.itemTextFilter}>Поиск контактов</p>
+      <p className={styles.itemTextFilter}>Пошук контактів</p>
       <Input
         className={styles.itemElement}
         type="text"
