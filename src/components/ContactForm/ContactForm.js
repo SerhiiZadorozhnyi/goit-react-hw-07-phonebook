@@ -30,6 +30,7 @@ function ContactForm() {
 
   const handleSubmit = event => {
     event.preventDefault();
+    
     const auditContact = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase(),
     );
