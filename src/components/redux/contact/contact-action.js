@@ -29,7 +29,6 @@ const actions = {
     addContactRequest,
     addContactSuccess,
     addContactError,
-    // deleteContact,
     deleteContactRequest,
     deleteContactSuccess,
     deleteContactError,
